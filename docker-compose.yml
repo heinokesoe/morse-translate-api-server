@@ -1,0 +1,7 @@
+version: "3"
+services:
+  morse-translate-api-server:
+    image: heinokesoe/morse-translate-api-server:latest
+    name: morse-translate-api-server
+    ports:
+      - "3000:3000"
