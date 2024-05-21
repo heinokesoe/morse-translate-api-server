@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, make_response
 import re
 
 app = Flask(__name__)
@@ -83,12 +83,18 @@ def english_to_morse(input):
 
 @app.route('/', methods=['GET'])
 def welcome():
-    return '''
-# To translate english into morse code<br/>
-$ curl -L -d 'input=Hello World!' morse.freaks.dev<br/><br/>
-# To translate morse code into english<br/>
+    welcome_text = '''
+
+# To translate english into morse code
+$ curl -L -d 'input=Hello World!' morse.freaks.dev
+
+# To translate morse code into english
 $ curl -L -d 'input=.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--' morse.freaks.dev
+
 '''
+    response = make_response(welcome_text, 200)
+    response.mimetype = "text/plain"
+    return response
 
 @app.route('/', methods=['POST'])
 def get_input():
