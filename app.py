@@ -84,12 +84,10 @@ def english_to_morse(input):
 @app.route('/', methods=['GET'])
 def welcome():
     return '''
-# To translate english into morse code
-$ curl -L -d 'input=Hello World!' morse.freaks.dev
-
-# To translate morse code into english
+# To translate english into morse code<br/>
+$ curl -L -d 'input=Hello World!' morse.freaks.dev<br/><br/>
+# To translate morse code into english<br/>
 $ curl -L -d 'input=.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--' morse.freaks.dev
-
 '''
 
 @app.route('/', methods=['POST'])
